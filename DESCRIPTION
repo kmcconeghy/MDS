@@ -1,14 +1,38 @@
-Package: mdsr
-Title: What the Package Does (one line, title case)
+Package: MDS
+Title: A Suite of Functions for Working with Nursing Home Minimum Data Set Assessments.
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-Depends: R (>= 3.4.2)
+Authors@R: person("Kevin", "McConeghy", email = "kevin_mcconeghy@brown.edu", role = c("aut", "cre"))
+Description: This package contains functions which test, format and edit nursing home assessments (MDS), to assist researchers when working with this unique data.
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Suggests: testthat,
+Depends: R (>= 3.4.2),
+  tidyverse, 
+  lubridate (>= 1.6.0),
+Imports:
+    dplyr (>= 0.7.4),
+    tidyr(>= 0.7.2),
+    ggplot2,
+    scales(>= 0.5.0),
+    tibble,
+    rlang,
+    broom (>= 0.4.2),
+    magrittr (>= 1.5.0),
+    forecast (>= 8.2.0),
+    stats,
+    Rcpp
+Suggests:
     knitr,
-    rmarkdown
+    microbenchmark,
+    XML,
+    memoise,
+    profr,
+    digest,
+    xtable,
+    rmarkdown,
+    sessioninfo,
+    testthat,
+    roxygen2 (>= 6.0.0)
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
+LinkingTo: Rcpp

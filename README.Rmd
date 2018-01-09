@@ -1,0 +1,60 @@
+MDS: A Suite of Functions for Working with Nursing Home Minimum Data Set Assessments.
+===============
+
+[![CRAN version](https://www.r-pkg.org/badges/version/MDS)](https://cran.r-project.org/package=MDS)
+[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/MDS)](https://cran.r-project.org/package=MDS)
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# Overview  
+The following package is a collection of R functions and example datasets to which will assist in checking, testing, formatting and generating preliminary results from Minimum Data Set Assessments.  
+
+# Installation  
+```{r, eval=F}
+# install from CRAN: (Not implemented yet)
+install.packages("MDS")
+
+# Or the the development version from GitHub:
+# install.packages("devtools")
+devtools::install_github("kmcconeghy/MDS")
+```
+This package relies heavily on the suite of packages and programming termed "Tidyverse", e.g. "dplyr", "lubridate", that must be installed for proper functioning.  
+
+# Usage  
+The primary goal of this package is to provide a toolkit for researchers who commonly work with MDS data. The included functions will check MDS data against a standard dictionary, confirm proper variable labelling, format and do some typical reshaping and data analyses common to many projects.  
+
+# Simple Example  
+```{r, include=F}
+library(MDS, quietly = T, warn.conflicts = F)
+library(tidyverse, quietly = T, warn.conflicts = F)
+```
+
+### Example data  
+
+# Vignettes  
+Several companion documents have been written to assist interested readers with the background and use of the package. We suggest you start here:
+[Introduction to mdsr](https://kmcconeghy.github.io/MDS/index.html) or if the package is installed:  
+```{r, eval=F}
+devtools::vignette("01-Introduction", "MDSs")
+```
+
+# Latest Version Updates  
+This package is in the early stages of development. Many features may change in a short amount of time.  
+
+# Future Goals for mdsr 
+
+# Important References   
+
+# Authors  
+Kevin W. McConeghy, Pharm.D, M.S., Brown University School of Public Health, Dept. Health Services Research  
+
+# Acknowledgements  
+The programming was derived with guidance and example code from the following individuals.  
+
+* 
