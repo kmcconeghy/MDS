@@ -41,13 +41,13 @@ library(tidyverse, quietly = T, warn.conflicts = F)
 Several companion documents have been written to assist interested readers with the background and use of the package. We suggest you start here:
 [Introduction to mdsr](https://kmcconeghy.github.io/MDS/index.html) or if the package is installed:  
 ```{r, eval=F}
-devtools::vignette("01-Introduction", "MDSs")
+devtools::vignette("01-Introduction", "MDS")
 ```
 
 # Latest Version Updates  
 This package is in the early stages of development. Many features may change in a short amount of time.  
 
-# Future Goals for mdsr 
+# Future Goals for MDS 
 
 # Important References   
 
