@@ -1,4 +1,4 @@
-Package: MDS
+Package: mdsR
 Title: A Suite of Functions for Working with Nursing Home Minimum Data Set Assessments.
 Version: 0.0.0.9000
 Authors@R: person("Kevin", "McConeghy", email = "kevin_mcconeghy@brown.edu", role = c("aut", "cre"))

@@ -1,8 +1,8 @@
-MDS: A Suite of Functions for Working with Nursing Home Minimum Data Set Assessments.
+mdsR: A Suite of Functions for Working with Nursing Home Minimum Data Set Assessments.
 ===============
 
-[![CRAN version](https://www.r-pkg.org/badges/version/MDS)](https://cran.r-project.org/package=MDS)
-[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/MDS)](https://cran.r-project.org/package=MDS)
+[![CRAN version](https://www.r-pkg.org/badges/version/MDS)](https://cran.r-project.org/package=mdsR)
+[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/mdsR)](https://cran.r-project.org/package=mdsR)
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
@@ -18,11 +18,11 @@ The following package is a collection of R functions and example datasets to whi
 # Installation  
 ```{r, eval=F}
 # install from CRAN: (Not implemented yet)
-install.packages("MDS")
+install.packages("mdsR")
 
 # Or the the development version from GitHub:
 # install.packages("devtools")
-devtools::install_github("kmcconeghy/MDS")
+devtools::install_github("kmcconeghy/mdsR")
 ```
 This package relies heavily on the suite of packages and programming termed "Tidyverse", e.g. "dplyr", "lubridate", that must be installed for proper functioning.  
 
@@ -31,7 +31,7 @@ The primary goal of this package is to provide a toolkit for researchers who com
 
 # Simple Example  
 ```{r, include=F}
-library(MDS, quietly = T, warn.conflicts = F)
+library(mdsR, quietly = T, warn.conflicts = F)
 library(tidyverse, quietly = T, warn.conflicts = F)
 ```
 
@@ -39,9 +39,9 @@ library(tidyverse, quietly = T, warn.conflicts = F)
 
 # Vignettes  
 Several companion documents have been written to assist interested readers with the background and use of the package. We suggest you start here:
-[Introduction to mdsr](https://kmcconeghy.github.io/MDS/index.html) or if the package is installed:  
+[Introduction to mdsr](https://kmcconeghy.github.io/mdsR/index.html) or if the package is installed:  
 ```{r, eval=F}
-devtools::vignette("01-Introduction", "MDS")
+devtools::vignette("01-Introduction", "mdsR")
 ```
 
 # Latest Version Updates  

@@ -1,4 +1,4 @@
-#' MDS:
+#' mdsR:
 #' A Suite of Functions for Working with Nursing Home Minimum Data Set
 #' Assessments.
 #'
@@ -9,11 +9,11 @@
 #' mds_test
 #'
 #' @section Vignettes:
-#' MDS: 01-Introduction, A general introduction to package
+#' mdsR: 01-Introduction, A general introduction to package
 #'
 #' @references
 #'
 #' @seealso
 #'
 #' @docType package
-#' @name MDS
+#' @name mdsR
