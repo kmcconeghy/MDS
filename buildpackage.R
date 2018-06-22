@@ -4,8 +4,8 @@ library('devtools')
 devtools::has_devel()
 
 #Initial Set-up
-setwd("~/GitHub/MDS")
-setup("C:\\Users\\User\\Documents\\GitHub\\MDS")
+setwd("~/GitHub/mdsR")
+setup("C:\\Users\\User\\Documents\\GitHub\\mdsR")
 # devtools::use_data_raw()
 # devtools::use_gpl3_license()
 # devtools::use_rcpp()
