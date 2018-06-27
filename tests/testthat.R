@@ -1,4 +1,4 @@
 library(testthat)
-library(mdsr)
+library(mdsR)
 
-test_check("mdsr")
+test_check("mdsR")
