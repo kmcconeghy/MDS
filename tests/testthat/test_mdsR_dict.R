@@ -4,8 +4,9 @@ test_that("mdsR Dictionary properly formatted", {
   #load data
   df <- mdsR::mds_varlist
 
-  df_names <- c("item", "label", "description", "class",
-              "category", "default_ref", "default_label")
+  df_names <- c("item",'standard', "label", "description", "class",
+              "category", 'SetMissToZero',
+              "default_ref", "default_label")
 
   #Tests
   expect_s3_class(df, "data.frame")
@@ -15,6 +16,7 @@ test_that("mdsR Dictionary properly formatted", {
   expect_type(df$description, "character")
   expect_type(df$class, "character")
   expect_type(df$category, "character")
+  expect_type(df$SetMissToZero, 'logical')
   expect_type(df$default_ref, "character")
   expect_type(df$default_label, "character")
 })

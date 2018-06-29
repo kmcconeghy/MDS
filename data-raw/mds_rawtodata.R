@@ -1,6 +1,6 @@
 library(tidyverse)
 #Set to data-raw wd
-setwd("~/GitHub/MDS/data-raw")
+setwd("~/GitHub/mdsR/data-raw")
 
 # Standard mds variable list into .Rda file
   #Input
