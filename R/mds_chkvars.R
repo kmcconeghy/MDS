@@ -1,38 +1,24 @@
-chk_bene_id_18900 <- function(x) {
-  testthat::expect_is(x, character)
-  
-  
-}
-
+#' @title chk_DMREPID: Test Repository ID
+#'
+#' @description Called when testing a MDS data.frame is canonical
+#'
+#' @usage chk_DMREPID(x)s
+#'
+#' @export
+#'
 chk_DMREPID <- function(x) {
   testthat::expect_is(x, character)
-  
-  
 }
 
+#' @title chk_DMRECID: Test Record ID
+#'
+#' @description Called when testing a MDS data.frame is canonical
+#'
+#' @usage chk_DMRECID(x)s
+#'
+#' @export
+#'
+#'
 chk_DMRECID <- function(x) {
   testthat::expect_is(x, character)
-  
-  
-}
-
-chk_DMRECID <- function(x) {
-  testthat::expect_is(x, character)
-  
-  
-}
-
-chk_dmdate <- function(x) {
-  testthat::expect_is(x, date)
-  
-}
-
-chk_dmadmit <- function(x) {
-  testthat::expect_is(x, date)
-  
-}
-
-chk_dmtype <- function(x) {
-  testthat::expect_is(x, numeric)
-  
 }
