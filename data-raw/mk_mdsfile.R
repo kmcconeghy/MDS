@@ -6,6 +6,7 @@
 # 05.29.2018
 
 require('tidyverse')
+require('mdsR')
 
 # General Workflow
 # 1. Select a random sample of 1000 people
@@ -29,49 +30,11 @@ mds_sample <- distinct(real_mds, bene_id_18900) %>%
   dplyr::filter(dmdate-last(dmdate)<=730) %>%
   ungroup()
 
-
-## functions for generating random data
-## Generate random repid
-make_repid <- function() {
-  state_samp <- sample(state.abb, 1)
-  int_samp <- str_pad(sample(1:99999, 1),
-                      width=10,
-                      side='left',
-                      pad='0')
-  y <- paste0(state_samp,'-',int_samp)
-  return(y)
-}
-
-## Generate random bene_id
-make_beneid <- function() {
-  y <- paste0('jjjjjjj',
-              stringi::stri_rand_strings(1, 9, pattern='[a-z0-9]'))
-  return(y)
-}
-
-## Make random facility id
-make_accptid <- function() {
-  y <- as.character(sample(1:999999, 1))
-  return(y)
-}
-
-##make random provider id from repid
-make_provid <- function(x) {
-  state_abb <- str_extract(x, pattern="^.{2}")
-  int_samp <- str_pad(sample(1:16000, 1),
-                      width=10,
-                      side='left',
-                      pad='0')
-  y <- paste0(state_abb,'-',int_samp)
-  return(y)
-}
-
-
-## 3. Replace identifiable data with random
+## 2. Replace identifiable data with random
 
 ## drop dmpers
 mds_sample_2 <- mds_sample %>%
-  select(-starts_with('dmpers'))
+  select(-starts_with('dmpers')) #internal brown id
 
 ## Random identifiers
 ### If Unlinked - 13 characters, 2 letters, -, 10 numbers
@@ -139,45 +102,42 @@ shift_date <- function(x, x_wall, wall='min') {
 
 mds_sample_7 <- mds_sample_6 %>%
   rowwise() %>%
-  mutate(M3A0900 = shift_date(M3A0900, dmdate, 'min'),
-         dmdob = M3A0900,
-         M3A2000 = shift_date(M3A2000, dmdate, 'max')) %>%
+    mutate(M3A0900 = shift_date(M3A0900, dmdate, 'min'),
+           dmdob = M3A0900,
+           M3A2000 = shift_date(M3A2000, dmdate, 'max')) %>%
   ungroup() %>%
   group_by(bene_id_18900, M3A1600) %>% #Admit Date
-  mutate(M3A1600_rand = shift_date(M3A1600, dmdate, 'min')) %>%
+    mutate(M3A1600_rand = shift_date(M3A1600, dmdate, 'min')) %>%
   ungroup() %>%
-  mutate(M3A1600 = M3A1600_rand,
-         dmadmit = M3A1600,
-         M3A1900 = if_else(is.na(M3A1900), M3A1900, M3A1600)) %>%
+    mutate(M3A1600 = M3A1600_rand,
+           dmadmit = M3A1600,
+           M3A1900 = if_else(is.na(M3A1900), M3A1900, M3A1600)) %>%
   rowwise() %>%
-  mutate(M3A2200 = if_else(!is.na(M3A2200),
-                           shift_date(M3A2200, dmdate, 'min'),
-                           M3A2200),
-         M3A2300 = if_else(!is.na(M3A2300),
-                           shift_date(M3A2300, dmdate, 'min'),
-                           M3A2300),
-         M3A2400B = if_else(!is.na(M3A2400B),
-                            M3A2400B + sample(-1:1, 1),
-                            M3A2400B),
-         M3A2400C = if_else(!is.na(M3A2400C),
-                            M3A2400C + sample(-1:1, 1),
-                            M3A2400C),
-         M3V0200B2 = if_else(is.na(M3V0200B2),
-                             shift_date(M3V0200B2, dmdate, 'max'),
-                             M3V0200B2),
-         M3V0200C2 = if_else(is.na(M3V0200C2),
-                             shift_date(M3V0200C2, dmdate, 'max'),
-                             M3V0200C2),
-         M3Z0500B = if_else(is.na(M3Z0500B),
-                            shift_date(M3Z0500B, dmdate, 'max'),
-                            M3Z0500B),
-         PROV2740_0 = if_else(!is.na(PROV2740_0),
-                              PROV2740_0 + sample(-1:1, 1),
-                              PROV2740_0),
-         PROV2740_1 = if_else(!is.na(PROV2740_1),
-                              PROV2740_1 + sample(-1:1, 1),
-                              PROV2740_1),
-  ) %>%
+    mutate(M3A2200 = if_else(!is.na(M3A2200),
+                             shift_date(M3A2200, dmdate, 'min'),
+                             M3A2200),
+           M3A2300 = if_else(!is.na(M3A2300),
+                             shift_date(M3A2300, dmdate, 'min'),
+                             M3A2300),
+           M3A2400B = if_else(!is.na(M3A2400B),
+                              M3A2400B + sample(-1:1, 1),
+                              M3A2400B),
+           M3A2400C = if_else(!is.na(M3A2400C),
+                              M3A2400C + sample(-1:1, 1),
+                              M3A2400C),
+           M3V0200B2 = if_else(is.na(M3V0200B2),
+                               shift_date(M3V0200B2, dmdate, 'max'),
+                               M3V0200B2),
+           M3V0200C2 = if_else(is.na(M3V0200C2),
+                               shift_date(M3V0200C2, dmdate, 'max'),
+                               M3V0200C2),
+           M3Z0500B = if_else(is.na(M3Z0500B),
+                              shift_date(M3Z0500B, dmdate, 'max'),
+                              M3Z0500B))
+  select(-starts_with('PROV')) %>%
+  select(-starts_with('F0')) %>%
+  select(-starts_with('SURV')) %>%
+  select(-starts_with('ss')) %>%
   select(-ends_with('rand'))
 
 
@@ -186,10 +146,6 @@ mds_sample_8 <- mds_sample_7 %>%
   mutate(M3A1300A = "", #MRN
          M3_STATE_CD = str_extract(DMREPID, pattern="^.{2}"),
          dmstate = M3_STATE_CD) %>%
-  select(-starts_with('PROV')) %>%
-  select(-starts_with('F0')) %>%
-  select(-starts_with('SURV')) %>%
-  select(-starts_with('ss')) %>%
   rowwise() %>%
   mutate(M3_SUBM_DT = M3_SUBM_DT + sample(-1:1,1),
          M3_PROCTS = M3_PROCTS + sample(-1:1,1),

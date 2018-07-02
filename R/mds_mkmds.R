@@ -6,7 +6,7 @@
 #'
 #' @export
 #'
-#
+#'
 mk_repid <- function() {
   state_samp <- sample(state.abb, 1)
   int_samp <- str_pad(sample(1:99999, 1),
@@ -16,6 +16,7 @@ mk_repid <- function() {
   y <- paste0(state_samp,'-',int_samp)
   return(y)
 }
+
 #' @title make_beneid: Make random Medicare Beneficiary ID
 #'
 #' @description Internal function for making fake MDS
@@ -30,6 +31,7 @@ mk_beneid <- function() {
               stringi::stri_rand_strings(1, 9, pattern='[a-z0-9]'))
   return(y)
 }
+
 #' @title mk_accptid: Make random Brown U. facility ID
 #'
 #' @description Internal function for making fake MDS
@@ -43,6 +45,7 @@ mk_accptid <- function() {
   y <- as.character(sample(1:999999, 1))
   return(y)
 }
+
 #' @title mk_provid: Make random provider facility ID
 #'
 #' @description Internal function for making fake MDS
