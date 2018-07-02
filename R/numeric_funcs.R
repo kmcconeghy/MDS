@@ -108,7 +108,7 @@ numeric_dt <- function(dt, median = TRUE, range='min/max', origin=NULL) {
   }
 
 
-  .flag <- if_else(sum(is.na(x)) / length(x)>0.10, '*', '')
+  .flag <- if_else(sum(is.na(dt)) / length(dt)>0.10, '*', '')
 
   if (median == TRUE) {
     dt_med <- format(median(dt))
