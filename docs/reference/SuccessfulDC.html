@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • mdsR</title>
+<title>SuccessfulDC: Find those who are discharged to community — SuccessfulDC • mdsR</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,7 +30,11 @@
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="SuccessfulDC: Find those who are discharged to community — SuccessfulDC" />
+
+<meta property="og:description" content="Queries a standardized MDS cohort dataset to identify those who
+were discharged to community" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -46,7 +50,7 @@
   </head>
 
   <body>
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -104,17 +108,61 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>SuccessfulDC: Find those who are discharged to community</h1>
+    
+    <div class="hidden name"><code>SuccessfulDC.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <ul>
-        <li><a href="01-Introduction.html">mdsR: A package suite for nursing home assessments</a></li>
-      </ul>
+    <div class="ref-description">
+    
+    <p>Queries a standardized MDS cohort dataset to identify those who
+were discharged to community</p>
+    
     </div>
+
+    <pre class="usage">SuccessfulDC <- function(x, .preindex, .postindex)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>A dataframe class object, must contain
+"bene_id_18900", "dmdate", "dmatype", "M3A2100"</p></td>
+    </tr>
+    <tr>
+      <th>.preindex</th>
+      <td><p>Date class object of length 1, start window to identify</p></td>
+    </tr>
+    <tr>
+      <th>.postindex</th>
+      <td><p>Date class object of length 1, stop window to identify</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>an object of class data.frame, limited to those without discharge
+to community in window</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>require</span>(<span class='no'>mdsR</span>)
+<span class='no'>mds_dta</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mdsR</span><span class='kw ns'>::</span><span class='no'>mds_cohort</span></div><div class='output co'>#&gt; <span class='error'>Error: 'mds_cohort' is not an exported object from 'namespace:mdsR'</span></div><div class='input'><span class='no'>start</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lubridate</span><span class='kw ns'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/ymd.html'>ymd</a></span>(<span class='st'>'2017-01-01'</span>)
+<span class='no'>stop</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lubridate</span><span class='kw ns'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/ymd.html'>ymd</a></span>(<span class='st'>'2018-01-01'</span>)
+<span class='no'>mds_dta2</span> <span class='kw'>&lt;-</span> <span class='fu'>SuccessfulDC</span>(<span class='no'>mds_dta</span>, <span class='no'>start</span>, <span class='no'>stop</span>)</div><div class='output co'>#&gt; <span class='error'>Error in mdsvars %in% names(x): object 'mds_dta' not found</span></div><div class='input'>
+</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
+
   </div>
 </div>
 

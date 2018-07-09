@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • mdsR</title>
+<title>mds_varlist — mds_varlist • mdsR</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,7 +30,12 @@
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="mds_varlist — mds_varlist" />
+
+<meta property="og:description" content="Standard MDS data dictionary; includes list of variables and attributes. If
+not specified otherwise, all tests / format checks will use this file for
+comparison." />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -46,7 +51,7 @@
   </head>
 
   <body>
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -104,17 +109,43 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>mds_varlist</h1>
+    
+    <div class="hidden name"><code>mds_varlist.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <ul>
-        <li><a href="01-Introduction.html">mdsR: A package suite for nursing home assessments</a></li>
-      </ul>
+    <div class="ref-description">
+    
+    <p>Standard MDS data dictionary; includes list of variables and attributes. If
+not specified otherwise, all tests / format checks will use this file for
+comparison.</p>
+    
     </div>
+
+    <pre class="usage"><span class='no'>mds_varlist</span></pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>A data frame with XX rows and 7 variables:</p><dl class='dl-horizontal'>
+  <dt>item</dt><dd><p>Variable Name</p></dd>
+  <dt>label</dt><dd><p>Variable Label</p></dd>
+  <dt>description</dt><dd><p>Long form description of variable</p></dd>
+  <dt>class</dt><dd><p>short hand, type of function to call for variable</p></dd>
+  <dt>category</dt><dd><p>MDS item section header (short-hand)</p></dd>
+  <dt>SetMissToZero</dt><dd><p>Items which can be assumed 'no' is missing</p></dd>
+  <dt>default_ref</dt><dd><p>For factor variables, reference value</p></dd>
+  <dt>default_label</dt><dd><p>For factor variables, label of reference value</p></dd>
+</dl>
+    
+
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      
+      <li><a href="#format">Format</a></li>
+          </ul>
+
   </div>
 </div>
 

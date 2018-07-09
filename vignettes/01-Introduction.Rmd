@@ -1,65 +1,27 @@
 ---
-title: "Vignette Title"
-author: "Vignette Author"
+title: "mdsR: A package suite for nursing home assessments"
+author: "Kevin W. McConeghy"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{01-Introduction}
+  %\VignetteIndexEntry{mdsR: 01-Introduction}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
+Welcome to mdsR! This program was written as a tool for academic work performed by researchers at Brown University. The primary objective was to develop a suite of personalized functions, some of which will only work with data housed by the Brown School of Public Health. We drew from many sources which are acknowledged and cited throughout in the development of this package.  
 
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
+## Introduction
 
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
+This vignette is a short introduction to the package for interested readers. In following vignettes describe in detail:  
 
-## Vignette Info
+1) Nursing Home Minimum Datasets [NH](https://kmcconeghy.github.io/flumodelr/articles/02-mds.html)  
 
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
+2) Simple descriptive work [Check MDS](https://kmcconeghy.github.io/flumodelr/articles/03-chkmds.html)  
 
-## Styles
+3) Cohort Definitions [NH Cohort](https://kmcconeghy.github.io/flumodelr/articles/04-cohort.html)  
 
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
+4) Special computations / formatting [Advanced MDS](https://kmcconeghy.github.io/flumodelr/articles/05-advmds.html)  
 
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
-
-## Figures
-
-The figure sizes have been customised so that you can easily put two images side-by-side. 
-
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
-```
-
-You can enable figure captions by `fig_caption: yes` in YAML:
-
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
-
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
-
-## More Examples
-
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
-```
-
-Also a quote using `>`:
-
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
+## Contacting authors  
+The primary author of the package was Kevin W. McConeghy.  

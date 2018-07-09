@@ -39,17 +39,22 @@ library(tidyverse, quietly = T, warn.conflicts = F)
 
 # Vignettes  
 Several companion documents have been written to assist interested readers with the background and use of the package. We suggest you start here:
-[Introduction to mdsr](https://kmcconeghy.github.io/mdsR/index.html) or if the package is installed:  
+[Introduction to mdsr](https://kmcconeghy.github.io/mdsR/01-introduction.html) or if the package is installed:  
 ```{r, eval=F}
 devtools::vignette("01-Introduction", "mdsR")
 ```
 
 # Latest Version Updates  
+
 This package is in the early stages of development. Many features may change in a short amount of time.  
 
-# Future Goals for MDS 
+# Future Goals for MDS   
+
+Under construction  
 
 # Important References   
+
+Under construction  
 
 # Authors  
 Kevin W. McConeghy, Pharm.D, M.S., Brown University School of Public Health, Dept. Health Services Research  
