@@ -1,3 +1,19 @@
+#' @title chk_nonstd: Test if non-standard variable
+#'
+#' @description Called when testing a MDS data.frame is canonical
+#'
+#' @usage chk_nonstd(x)
+#'
+#' @return logical
+#'
+#' @export
+#'
+chk_nonstd <- function(x) {
+  ## Pull standards
+  var_nms <- mdsR::mds_varlist[mds_varlist$standard=='non-std', ]$item
+  val <- dplyr::if_else(x %in% var_nms, T, F)
+  return(val)
+}
 #' @title chk_bene_id_18900: Test Beneficiary ID
 #'
 #' @description Called when testing a MDS data.frame is Brown U. canonical

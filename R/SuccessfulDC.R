@@ -3,7 +3,7 @@
 #' @description Queries a standardized MDS cohort dataset to identify those who
 #' were discharged to community
 #'
-#' @usage SuccessfulDC <- function(x, .preindex, .postindex)
+#' @usage SuccessfulDC(x, '2018-01-01', '2018-10-01')
 #'
 #' @param x A dataframe class object, must contain
 #' "bene_id_18900", "dmdate", "dmatype", "M3A2100"

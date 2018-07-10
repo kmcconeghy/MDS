@@ -4,7 +4,7 @@
 \alias{SuccessfulDC}
 \title{SuccessfulDC: Find those who are discharged to community}
 \usage{
-SuccessfulDC <- function(x, .preindex, .postindex)
+SuccessfulDC(x, '2018-01-01', '2018-10-01')
 }
 \arguments{
 \item{x}{A dataframe class object, must contain

@@ -4,7 +4,7 @@
 \alias{chk_DMREPID}
 \title{chk_DMREPID: Test Repository ID}
 \usage{
-chk_DMREPID(x)s
+chk_DMREPID(x)
 }
 \description{
 Called when testing a MDS data.frame is canonical
