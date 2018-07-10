@@ -15,13 +15,13 @@ Welcome to mdsR! This program was written as a tool for academic work performed 
 
 This vignette is a short introduction to the package for interested readers. In following vignettes describe in detail:  
 
-1) Nursing Home Minimum Datasets [NH](https://kmcconeghy.github.io/flumodelr/articles/02-mds.html)  
+1) Nursing Home Minimum Datasets: [MDS Background](https://kmcconeghy.github.io/mdsR/articles/02-mds.html)  
 
-2) Simple descriptive work [Check MDS](https://kmcconeghy.github.io/flumodelr/articles/03-chkmds.html)  
+2) Simple descriptive work: [MDS Checks](https://kmcconeghy.github.io/mdsR/articles/03-chkmds.html)  
 
-3) Cohort Definitions [NH Cohort](https://kmcconeghy.github.io/flumodelr/articles/04-cohort.html)  
+3) Cohort Definitions: [MDS Cohorts](https://kmcconeghy.github.io/mdsR/articles/04-cohort.html)  
 
-4) Special computations / formatting [Advanced MDS](https://kmcconeghy.github.io/flumodelr/articles/05-advmds.html)  
+4) Special computations / formatting: [MDS Advanced](https://kmcconeghy.github.io/mdsR/articles/05-advmds.html)  
 
 ## Contacting authors  
 The primary author of the package was Kevin W. McConeghy.  

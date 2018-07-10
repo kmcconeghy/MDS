@@ -1,0 +1,35 @@
+---
+title: "mdsR: Nursing Home Assessment Background"
+author: "Kevin W. McConeghy"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{flumodelr: 02-Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+options(tibble.print_min = 4L, tibble.print_max = 4L)
+```
+
+The nursing home minimum dataset is comprehensive assessment which is performed on nursing home residents on admission, discharge, annually and when a change in status (i.e. illness) occurs. The Centers for Medicaid and Medicare service mandates assessment be completed for all Medicare residents. This means virtually all NH residents have assessments completed from which comprehensive information on thier NH stay can be collected.  
+
+## Important Resources:  
+
+Medicare ResDAC description of MDS 3.0 Data: [ResDAC MDS](https://www.resdac.org/cms-data/files/mds-3.0)
+
+A copy of the minimum dataset 3.0: [Copy of MDS item set](https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/NursingHomeQualityInits/Downloads/Archive-Draft-of-the-MDS-30-Nursing-Home-Comprehensive-NC-Version-1140.pdf)
+
+minimum dataset 3.0 manual: [Manual](https://downloads.cms.gov/files/1-MDS-30-RAI-Manual-v115R-October-1-2017-R.pdf)  
+
+## Important notes:  
+
+ * The MDS is filled out with input from the provider (nurse), patient and family members, some segments can be filled out by either patient or advocate. 
+ 
+ * The MDS is essentially an item-response survey and is prone to errors in dates, height / weight etc. Several functions in this package are devoted to checking for errors.  
+ 
+ 
+ 
+ 

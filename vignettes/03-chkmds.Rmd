@@ -1,0 +1,48 @@
+---
+title: "mdsR: Nursing Home Assessment Background"
+author: "Kevin W. McConeghy"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{flumodelr: 02-Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+options(tibble.print_min = 4L, tibble.print_max = 4L)
+library(mdsR)
+library(tidyverse)
+```
+
+## Introduction  
+
+A primary purpose of this package is to check raw MDS data, format and prepare it for a 'tidy' analytical dataset.  
+
+The following sections demonstrate examples:  
+
+## Test that mds data.frame is canonical  
+
+For the package to work it must: 
+
+ 1) Be a 'data.frame', 'tbl' class object.  
+
+ 2) Have named variables consistent with mdsR internal data dictionary  
+ 
+### Calling mdsR internal data  
+
+Most functions will call an internal dictionary, when checking whether variables are properly formatted etc. The guides mdsR to what kind of a variable a column is, what to label it, whether it is a common mds ResDAC item or something Brown generates for its own server purposes etc. It only works if the data frame is set-up properly.   
+
+#### Test example file  
+
+```{r }
+mds_dta <- cars
+mds_chkfile(mds_dta)
+```
+
+## Check variables for formatting  
+
+
+## Brown specialty variables  
+

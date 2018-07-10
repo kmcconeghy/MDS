@@ -14,7 +14,7 @@
 
 <meta name="date" content="2018-07-09" />
 
-<title>mdsR: A package suite for nursing home assessments</title>
+<title>mdsR: Nursing Home Assessment Background</title>
 
 
 
@@ -30,26 +30,34 @@
 
 
 
-<h1 class="title toc-ignore">mdsR: A package suite for nursing home assessments</h1>
+<h1 class="title toc-ignore">mdsR: Nursing Home Assessment Background</h1>
 <h4 class="author"><em>Kevin W. McConeghy</em></h4>
 <h4 class="date"><em>2018-07-09</em></h4>
 
 
 
-<p>Welcome to mdsR! This program was written as a tool for academic work performed by researchers at Brown University. The primary objective was to develop a suite of personalized functions, some of which will only work with data housed by the Brown School of Public Health. We drew from many sources which are acknowledged and cited throughout in the development of this package.</p>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>This vignette is a short introduction to the package for interested readers. In following vignettes describe in detail:</p>
-<ol style="list-style-type: decimal">
-<li><p>Nursing Home Minimum Datasets: <a href="https://kmcconeghy.github.io/mdsR/articles/02-mds.html">MDS Background</a></p></li>
-<li><p>Simple descriptive work: <a href="https://kmcconeghy.github.io/mdsR/articles/03-chkmds.html">MDS Checks</a></p></li>
-<li><p>Cohort Definitions: <a href="https://kmcconeghy.github.io/mdsR/articles/04-cohort.html">MDS Cohorts</a></p></li>
-<li><p>Special computations / formatting: <a href="https://kmcconeghy.github.io/mdsR/articles/05-advmds.html">MDS Advanced</a></p></li>
-</ol>
+<p>A primary purpose of this package is to check raw MDS data, format and prepare it for a ‘tidy’ analytical dataset.</p>
+<p>The following sections demonstrate examples:</p>
 </div>
-<div id="contacting-authors" class="section level2">
-<h2>Contacting authors</h2>
-<p>The primary author of the package was Kevin W. McConeghy.</p>
+<div id="test-that-mds-data.frame-is-canonical" class="section level2">
+<h2>Test that mds data.frame is canonical</h2>
+<p>For the package to work it must:</p>
+<ol style="list-style-type: decimal">
+<li><p>Be a ‘data.frame’, ‘tbl’ class object.</p></li>
+<li><p>Have named variables consistent with mdsR internal data dictionary</p></li>
+</ol>
+<div id="calling-mdsr-internal-data" class="section level3">
+<h3>Calling mdsR internal data</h3>
+<p>Most functions will call an internal dictionary, when checking whether variables are properly formatted etc. The guides mdsR to what kind of a variable a column is, what to label it, whether it is a common mds ResDAC item or something Brown generates for its own server purposes etc. It only works if the data frame is set-up properly.</p>
+</div>
+</div>
+<div id="check-variables-for-formatting" class="section level2">
+<h2>Check variables for formatting</h2>
+</div>
+<div id="brown-specialty-variables" class="section level2">
+<h2>Brown specialty variables</h2>
 </div>
 
 
