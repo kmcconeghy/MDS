@@ -7,22 +7,24 @@
 #' @export
 #'
 mds_rpt_sty <- function() {
-  title_sty <- openxlsx::createStyle(fontColour = 'black',
-                                       halign = 'left',
-                                       valign = 'center',
-                                       textDecoration = 'Bold',
-                                       border = 'Bottom')
 
-  resultcol_sty <- openxlsx::createStyle(fontColour = 'black',
-                                           halign = 'center',
+  xl_style <- list()
+
+  xl_style$title <- openxlsx::createStyle(fontColour = 'black',
+                                          halign = 'left',
+                                          valign = 'center',
+                                          textDecoration = 'Bold',
+                                          border = 'Bottom')
+
+  xl_style$subhead <- openxlsx::createStyle(fontColour = 'black',
+                                            halign = 'left',
+                                            textDecoration = 'Bold',
+                                            valign = 'center')
+
+  xl_style$result <- openxlsx::createStyle(fontColour = 'black',
+                                           halign = 'left',
                                            valign = 'center')
 
-  subhead_sty <- openxlsx::createStyle(fontColour = 'black',
-                                         halign = 'left',
-                                         valign = 'center')
 
-  varcat_sty  <- openxlsx::createStyle(fontColour = 'black',
-                                         halign = 'center',
-                                         valign = 'center',
-                                         textRotation = 90)
+  return(xl_style)
 }
