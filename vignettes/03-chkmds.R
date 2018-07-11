@@ -4,3 +4,11 @@ options(tibble.print_min = 4L, tibble.print_max = 4L)
 library(mdsR)
 library(tidyverse)
 
+## ------------------------------------------------------------------------
+not_mds_dta <- cars
+mds_canon(not_mds_dta)
+
+## ------------------------------------------------------------------------
+mds_dta <- mdsR::mds_dta  
+mds_canon(mds_dta)
+

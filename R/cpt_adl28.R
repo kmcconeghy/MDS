@@ -18,7 +18,8 @@
 #' mds_dta <- mdsR::mds_cohort
 #' cpt_adl28(mds_dta)
 #'
-#' @references
+#' @references ADD LATER
+#'
 cpt_adl28 <- function(x, report=T) {
 
   stopifnot(any(class(x)=="data.frame"))

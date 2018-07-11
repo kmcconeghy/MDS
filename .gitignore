@@ -2,5 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
+.Rds
 inst/doc
 buildpackage.R

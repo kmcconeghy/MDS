@@ -16,15 +16,14 @@
 #' mds_canon(mds_dta)
 #'
 
-mds_canon <- function(mds_obj) {
+mds_canon <- function(mds_obj, .report=T) {
 
-  ##
-  obj_nm <- quo(mds_obj)
+  ## Scoping
+    obj_nm <- rlang::quo(mds_obj)
 
   ## Check if canon
     test_df <- any(class(mds_obj)=='data.frame')
     test_tbl <- any(class(mds_obj)=='tbl')
-
 
   ## Contains core
     core <- c('DMRECID', 'DMREPID', 'dmdate')
@@ -42,16 +41,20 @@ mds_canon <- function(mds_obj) {
 
   ## Class mds
     if (test_core==T) class(mds_obj) <- 'mds_core'
-    if (test_core==T & test_std==T) class(mds_obj) <- 'mds_std'
-    test_mds <- if_else(any(class(mds_object)=='mds_core'), T, F)
+    if (all(test_core, test_std)) class(mds_obj) <- 'mds_std'
+    test_mds <- if_else(any(class(mds_obj)=='mds_core'), T, F)
 
   ## Return
-  cat(rlang::quo_text(obj_nm), ' is data.frame....', test_df, '\n')
-  cat(rlang::quo_text(obj_nm), ' is tibble....', test_tbl, '\n')
-  cat(rlang::quo_text(obj_nm), ' has core variables....', test_core, '\n')
-  cat(rlang::quo_text(obj_nm), ' all variables std....', all(test_std), '\n')
-  if (all(test_std)==F) { cat('Non-std variables....', paste0(non_std_nms, sep=','), '\n') }
-  cat(rlang::quo_text(obj_nm), ' is mds canon....', test_mds, '\n')
+    if (.report==T) {
+      cat(rlang::quo_text(obj_nm), ' is data.frame....', test_df, '\n')
+      cat(rlang::quo_text(obj_nm), ' is tibble....', test_tbl, '\n')
+      cat(rlang::quo_text(obj_nm), ' has core variables....', test_core, '\n')
+      cat(rlang::quo_text(obj_nm), ' all variables "std"....', all(test_std), '\n')
+      if (all(test_std)==F) { cat(' "non-std" variables....', paste0(unk_nms, sep=','), '\n') }
+      cat(rlang::quo_text(obj_nm), ' is mds canon....', test_mds, '\n')
+    }
 
-  return(mds_object)
+    if (test_mds==T) {
+      return(mds_obj)
+    }
 }
