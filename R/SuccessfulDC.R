@@ -24,7 +24,6 @@
 #' stop <- lubridate::ymd('2018-01-01')
 #' mds_dta2 <- SuccessfulDC(mds_dta, start, stop)
 #'
-#' @references
 
 SuccessfulDC <- function(x, .preindex, .postindex) {
 

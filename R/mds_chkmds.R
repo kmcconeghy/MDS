@@ -1,8 +1,8 @@
-#' @title mds_chkfile: Test object for canon MDS file
+#' @title mds_chkmds: Test object for canon MDS file
 #'
 #' @description Called when testing an object is MDS canonical
 #'
-#' @usage mds_chkfile(x, .report=T)
+#' @usage mds_chkmds(x, .report=T)
 #'
 #' @param x A data.frame class object.
 #'
@@ -13,10 +13,9 @@
 #' @examples
 #' require(mdsR)
 #' mds_dta <- mdsR::mds_cohort
-#' mds_chkfile(mds_dta)
+#' mds_chkmds(mds_dta)
 #'
-#' @references
-mds_chkfile <- function(mds_obj) {
+mds_chkmds <- function(mds_obj) {
 
   obj_name <- rlang::quo(mds_obj)
 
@@ -31,6 +30,6 @@ mds_chkfile <- function(mds_obj) {
 
 
   ##Pull non-standards
-  var_nms <- mdsR::mds_varlist[mds_varlist$standard=='std', ]$item
+  var_nms <- mdsR::mds_varlist[mds_varlist$standard=='non-std', ]$item
 
 }

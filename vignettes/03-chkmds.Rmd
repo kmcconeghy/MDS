@@ -38,7 +38,7 @@ Most functions will call an internal dictionary, when checking whether variables
 
 ```{r }
 mds_dta <- cars
-mds_chkfile(mds_dta)
+mds_chkmds(mds_dta)
 ```
 
 ## Check variables for formatting  

@@ -19,7 +19,6 @@
 #' mds_dta <- mdsR::mds_cohort
 #' mds_rpt_xls(mds_dta, 'mds.xslx')
 #'
-#' @references
 mds_rpt_xls <- function(mds_obj,
                         filepath,
                         quietly = F) {
@@ -70,7 +69,7 @@ mds_rpt_xls <- function(mds_obj,
   openxlsx::addStyle(xlsx.wb, 1, style=xl_style$subhead, rows=2:3, cols=1)
 
   ## Contents
-  res <- mds_rpt_res(mds_obj)
+  res <- mds_des(mds_obj)
 
   openxlsx::writeData(xlsx.wb, 1,
                       paste0('Observations: ', formatC(res$nrows, big.mark = ',')),
