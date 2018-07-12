@@ -4,13 +4,15 @@
 \alias{mds_canon}
 \title{mds_canon: Test object for canon MDS file}
 \usage{
-mds_canon(x, .report=T)
+mds_canon(mds_obj, .report=T)
 }
 \arguments{
-\item{x}{A data.frame class object.}
+\item{mds_obj}{A data.frame class object.}
+
+\item{.report}{A logical vector, indicated whether to output to console}
 }
 \value{
-Prints output to console
+Prints output to console, if canon returns data.frame with attribute
 }
 \description{
 Called when testing an object is MDS canonical

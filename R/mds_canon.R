@@ -2,11 +2,13 @@
 #'
 #' @description Called when testing an object is MDS canonical
 #'
-#' @usage mds_canon(x, .report=T)
+#' @usage mds_canon(mds_obj, .report=T)
 #'
-#' @param x A data.frame class object.
+#' @param mds_obj A data.frame class object.
 #'
-#' @return Prints output to console
+#' @param .report A logical vector, indicated whether to output to console
+#'
+#' @return Prints output to console, if canon returns data.frame with attribute
 #'
 #' @export
 #'
@@ -40,9 +42,10 @@ mds_canon <- function(mds_obj, .report=T) {
     unlisted_nms <- names(mds_obj) #add more
 
   ## Class mds
-    if (test_core==T) class(mds_obj) <- 'mds_core'
-    if (all(test_core, test_std)) class(mds_obj) <- 'mds_std'
-    test_mds <- if_else(any(class(mds_obj)=='mds_core'), T, F)
+    if (test_core==F) attr(mds_obj, 'mds_canon') <- 'heresy'
+    if (test_core==T) attr(mds_obj, 'mds_canon') <- 'mds_core'
+    if (all(test_core, test_std)) attr(mds_obj, 'mds_canon') <- 'mds_std'
+    test_mds <- if_else(attr(mds_obj, 'mds_canon') %in% c('mds_core', 'mds_std'), T, F)
 
   ## Return
     if (.report==T) {
