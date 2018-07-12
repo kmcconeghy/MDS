@@ -2,13 +2,13 @@
 #'
 #' @description Outputs select analyses of an MDS data.frame object
 #'
-#' @usage mds_rpt_xls(mds_obj, 'mds.xlsx', quietly=F)
+#' @usage mds_rpt_xls(mds_obj, 'mds.xlsx', .quietly=F)
 #'
 #' @param mds_obj A data.frame class object with MDS items.
 #'
 #' @param filepath Path to save excel file
 #'
-#' @param quietly If FALSE, will print some output to console
+#' @param .quietly If FALSE, will print some output to console
 #'
 #' @return No return
 #'
@@ -21,10 +21,11 @@
 #'
 mds_rpt_xls <- function(mds_obj,
                         filepath,
-                        quietly = F) {
+                        .quietly = F) {
 
   # Must be dataframe
-  stopifnot(any(class(mds_obj)=='data.frame'))
+  stopifnot(any(class(mds_obj)=='data.frame') &
+            any(class(mds_obj)=='mds_core'))
 
   #Must have certain columns
   std_columns <- c('bene_id_18900', 'dmdate', 'DMRECID')
@@ -44,7 +45,7 @@ mds_rpt_xls <- function(mds_obj,
 
 
   ## Title Box
-  if (quietly==F) {
+  if (.quietly==F) {
     cat('General Report on Minimum Dataset File \n')
     cat('R gloal environ. object: ', rlang::quo_text(obj_name), '\n')
     cat('Date Created: ', Scotty::TimeStamp(), 'Programmer: ', 'KWM',  '\n')

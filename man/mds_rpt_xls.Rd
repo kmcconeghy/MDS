@@ -4,14 +4,14 @@
 \alias{mds_rpt_xls}
 \title{Descriptive Report of MDS File}
 \usage{
-mds_rpt_xls(mds_obj, 'mds.xlsx', quietly=F)
+mds_rpt_xls(mds_obj, 'mds.xlsx', .quietly=F)
 }
 \arguments{
 \item{mds_obj}{A data.frame class object with MDS items.}
 
 \item{filepath}{Path to save excel file}
 
-\item{quietly}{If FALSE, will print some output to console}
+\item{.quietly}{If FALSE, will print some output to console}
 }
 \value{
 No return

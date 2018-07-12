@@ -10,5 +10,8 @@ mds_canon(not_mds_dta)
 
 ## ------------------------------------------------------------------------
 mds_dta <- mdsR::mds_dta  
-mds_canon(mds_dta)
+mds_dta <- mds_canon(mds_dta)
+
+## ------------------------------------------------------------------------
+mds_flagmiss(mds_dta)
 

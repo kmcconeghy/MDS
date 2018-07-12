@@ -1,10 +1,10 @@
-#' @title mds_chkmds: Test object for canon MDS file
+#' @title mds_chkmds: Generate a report on MDS data.frame
 #'
 #' @description Called when testing an object is MDS canonical
 #'
-#' @usage mds_chkmds(x, .report=T)
+#' @usage mds_chkmds(mds_obj, .report=T)
 #'
-#' @param x A data.frame class object.
+#' @param mds_obj A data.frame class object.
 #'
 #' @return Prints output to console
 #'

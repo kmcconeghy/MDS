@@ -1,5 +1,5 @@
 ---
-title: "mdsR: Nursing Home Assessment Background"
+title: "mdsR: Checks and Reports on MDS datasets"
 author: "Kevin W. McConeghy"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -45,6 +45,11 @@ mds_canon(not_mds_dta)
 ```{r }
 mds_dta <- mdsR::mds_dta  
 mds_dta <- mds_canon(mds_dta)
+```
+
+## Check missingness  
+```{r }
+mds_flagmiss(mds_dta)
 ```
 
 ## Check variables for formatting  

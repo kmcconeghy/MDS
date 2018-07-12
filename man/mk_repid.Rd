@@ -4,7 +4,7 @@
 \alias{mk_repid}
 \title{mk_repid: Make random Repository ID}
 \usage{
-make_repid()
+mk_repid()
 }
 \description{
 Internal function for making fake MDS

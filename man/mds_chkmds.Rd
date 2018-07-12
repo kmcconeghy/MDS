@@ -2,12 +2,12 @@
 % Please edit documentation in R/mds_chkmds.R
 \name{mds_chkmds}
 \alias{mds_chkmds}
-\title{mds_chkmds: Test object for canon MDS file}
+\title{mds_chkmds: Generate a report on MDS data.frame}
 \usage{
-mds_chkmds(x, .report=T)
+mds_chkmds(mds_obj, .report=T)
 }
 \arguments{
-\item{x}{A data.frame class object.}
+\item{mds_obj}{A data.frame class object.}
 }
 \value{
 Prints output to console

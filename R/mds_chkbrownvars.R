@@ -38,11 +38,11 @@ chk_dmdate <- function(x) {
   testthat::expect_is(x, date)
 }
 
-#' @title chk_dmadate: Test admission date variable
+#' @title chk_dmadmit: Test admission date variable
 #'
 #' @description Called when testing a MDS data.frame is Brown U. canonical
 #'
-#' @usage chk_dmadate(x)
+#' @usage chk_dmadmit(x)
 #'
 #' @export
 #'

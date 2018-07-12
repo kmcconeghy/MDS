@@ -4,7 +4,7 @@
 \alias{mds_des}
 \title{mds_des: Quick function for general stats on mds file}
 \usage{
-mds_rpt_res(x)
+mds_des(x)
 }
 \description{
 Called when evaluating an MDS data.frame, must be canonical

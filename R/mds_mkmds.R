@@ -2,7 +2,7 @@
 #'
 #' @description Internal function for making fake MDS
 #'
-#' @usage make_repid()
+#' @usage mk_repid()
 #'
 #' @export
 #'

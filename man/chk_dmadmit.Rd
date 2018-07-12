@@ -2,9 +2,9 @@
 % Please edit documentation in R/mds_chkbrownvars.R
 \name{chk_dmadmit}
 \alias{chk_dmadmit}
-\title{chk_dmadate: Test admission date variable}
+\title{chk_dmadmit: Test admission date variable}
 \usage{
-chk_dmadate(x)
+chk_dmadmit(x)
 }
 \description{
 Called when testing a MDS data.frame is Brown U. canonical

@@ -2,7 +2,7 @@
 #'
 #' @description Called when evaluating an MDS data.frame, must be canonical
 #'
-#' @usage mds_rpt_res(x)
+#' @usage mds_des(x)
 #'
 #' @export
 #'
