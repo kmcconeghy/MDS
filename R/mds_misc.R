@@ -8,6 +8,8 @@
 #'
 mds_des <-  function(x) {
 
+  if (mds_is_canon(x)==F) stop('mds_obj not canon, see ?mds_canon')
+
   res <- list()
   res$nrows <- nrow(x)
   res$ncols <- ncol(x)
