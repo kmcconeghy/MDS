@@ -1,8 +1,8 @@
-#' @title mds_canon: Test object for canon MDS file
+#' @title mds_as_canon: Test object for canon MDS file
 #'
 #' @description Called when testing an object is MDS canonical
 #'
-#' @usage mds_canon(mds_obj, .report=T)
+#' @usage mds_as_canon(mds_obj, .report=T)
 #'
 #' @param mds_obj A data.frame class object.
 #'
@@ -15,10 +15,9 @@
 #' @examples
 #' require(mdsR)
 #' mds_dta <- mdsR::mds_cohort
-#' mds_canon(mds_dta)
+#' mds_as_canon(mds_dta)
 #'
-
-mds_canon <- function(mds_obj, .report=T) {
+mds_as_canon <- function(mds_obj, .report=T) {
 
   ## Scoping
     obj_nm <- rlang::quo(mds_obj)
@@ -60,4 +59,15 @@ mds_canon <- function(mds_obj, .report=T) {
     if (test_mds==T) {
       return(mds_obj)
     }
+}
+#' @title mds_is_canon: Test if file is canon
+#'
+#' @description Returns logical for if file is canon
+#'
+#' @usage mds_is_canon(x)
+#'
+#' @export
+#'
+mds_is_canon <- function(x) {
+  return(if_else(attr(x, 'mds_canon') %in% c('mds_core', 'mds_std'), T, F))
 }
