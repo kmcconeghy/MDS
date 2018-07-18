@@ -12,7 +12,7 @@
 
 <meta name="author" content="Kevin W. McConeghy" />
 
-<meta name="date" content="2018-07-12" />
+<meta name="date" content="2018-07-18" />
 
 <title>mdsR: Checks and Reports on MDS datasets</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">mdsR: Checks and Reports on MDS datasets</h1>
 <h4 class="author"><em>Kevin W. McConeghy</em></h4>
-<h4 class="date"><em>2018-07-12</em></h4>
+<h4 class="date"><em>2018-07-18</em></h4>
 
 
 
@@ -92,7 +92,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="test-non-canon-file" class="section level4">
 <h4>Test non-canon file</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">not_mds_dta &lt;-<span class="st"> </span>cars
-<span class="kw">mds_canon</span>(not_mds_dta)
+<span class="kw">mds_as_canon</span>(not_mds_dta)
 <span class="co">#&gt; mds_obj  is data.frame.... TRUE </span>
 <span class="co">#&gt; mds_obj  is tibble.... FALSE </span>
 <span class="co">#&gt; mds_obj  has core variables.... FALSE </span>
@@ -103,7 +103,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="test-canon-file" class="section level4">
 <h4>Test canon file</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mds_dta &lt;-<span class="st"> </span>mdsR<span class="op">::</span>mds_dta  
-mds_dta &lt;-<span class="st"> </span><span class="kw">mds_canon</span>(mds_dta)
+mds_dta &lt;-<span class="st"> </span><span class="kw">mds_as_canon</span>(mds_dta)
 <span class="co">#&gt; mds_obj  is data.frame.... TRUE </span>
 <span class="co">#&gt; mds_obj  is tibble.... TRUE </span>
 <span class="co">#&gt; mds_obj  has core variables.... TRUE </span>
@@ -111,6 +111,11 @@ mds_dta &lt;-<span class="st"> </span><span class="kw">mds_canon</span>(mds_dta)
 <span class="co">#&gt;  &quot;non-std&quot; variables.... DMREPID, bene_id_18900, accpt_id, DMREPPROV, M3A0100A, M3A0100B, M3A0100C, mmxxid, mmxxidp, PROV1680_0, PROV1680_1, DMRECID, M3A1600, DMASMDT, dmdate, </span>
 <span class="co">#&gt; mds_obj  is mds canon.... TRUE</span></code></pre></div>
 </div>
+</div>
+<div id="quick-check" class="section level3">
+<h3>quick check</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mds_is_canon</span>(mds_dta)
+<span class="co">#&gt; [1] TRUE</span></code></pre></div>
 </div>
 </div>
 <div id="check-missingness" class="section level2">
