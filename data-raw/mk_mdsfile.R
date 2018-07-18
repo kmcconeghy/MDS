@@ -28,6 +28,7 @@ mds_fake <- tibble(DMREPID = rep(mds_personid$DMREPID,
 ## Random facilities
 
 ### make 100 random facilities
+  rand_facs <- NA
   rand_facs[1:100] <- NA
   rand_facs <- sapply(rand_facs, function(x) mk_accptid())
 
@@ -91,6 +92,7 @@ mds_fake_3 <- mds_fake_2 %>%
            dmdate = as_date(DMASMDT),
            M3A1600 = as_date(M3A1600),
            M3A2000 = as_date(M3A2000)) %>%
-    arrange(bene_id_18900, DMASMDT)
+    arrange(bene_id_18900, DMASMDT) %>%
+    mds_canon(.)
 
 devtools::use_data(mds_dta, overwrite=T)
