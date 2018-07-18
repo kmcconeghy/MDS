@@ -38,13 +38,18 @@ Most functions will call an internal dictionary, when checking whether variables
 
 ```{r }
 not_mds_dta <- cars
-mds_canon(not_mds_dta)
+mds_as_canon(not_mds_dta)
 ```
 
 #### Test canon file  
 ```{r }
 mds_dta <- mdsR::mds_dta  
-mds_dta <- mds_canon(mds_dta)
+mds_dta <- mds_as_canon(mds_dta)
+```
+
+### quick check  
+```{r }
+mds_is_canon(mds_dta)
 ```
 
 ## Check missingness  

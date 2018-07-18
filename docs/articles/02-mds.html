@@ -5,11 +5,11 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>mdsR: A package suite for nursing home assessments • mdsR</title>
+<title>mdsR: Nursing Home Assessment Background • mdsR</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="mdsR: A package suite for nursing home assessments">
+<script src="../pkgdown.js"></script><meta property="og:title" content="mdsR: Nursing Home Assessment Background">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
@@ -78,34 +78,33 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>mdsR: A package suite for nursing home assessments</h1>
+      <h1>mdsR: Nursing Home Assessment Background</h1>
                         <h4 class="author">Kevin W. McConeghy</h4>
             
             <h4 class="date">2018-07-18</h4>
       
       
-      <div class="hidden name"><code>01-Introduction.Rmd</code></div>
+      <div class="hidden name"><code>02-mds.rmd</code></div>
 
     </div>
 
     
     
-<p>Welcome to mdsR! This program was written as a tool for academic work performed by researchers at Brown University. The primary objective was to develop a suite of personalized functions, some of which will only work with data housed by the Brown School of Public Health. We drew from many sources which are acknowledged and cited throughout in the development of this package.</p>
-<div id="introduction" class="section level2">
+<p>The nursing home minimum dataset is comprehensive assessment which is performed on nursing home residents on admission, discharge, annually and when a change in status (i.e. illness) occurs. The Centers for Medicaid and Medicare service mandates assessment be completed for all Medicare residents. This means virtually all NH residents have assessments completed from which comprehensive information on thier NH stay can be collected.</p>
+<div id="important-resources" class="section level2">
 <h2 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>Introduction</h2>
-<p>This vignette is a short introduction to the package for interested readers. In following vignettes describe in detail:</p>
-<ol style="list-style-type: decimal">
-<li><p>Nursing Home Minimum Datasets: <a href="https://kmcconeghy.github.io/mdsR/articles/02-mds.html">MDS Background</a></p></li>
-<li><p>Simple descriptive work: <a href="https://kmcconeghy.github.io/mdsR/articles/03-chkmds.html">MDS Checks</a></p></li>
-<li><p>Cohort Definitions: <a href="https://kmcconeghy.github.io/mdsR/articles/04-cohort.html">MDS Cohorts</a></p></li>
-<li><p>Special computations / formatting: <a href="https://kmcconeghy.github.io/mdsR/articles/05-advmds.html">MDS Advanced</a></p></li>
-</ol>
+<a href="#important-resources" class="anchor"></a>Important Resources:</h2>
+<p>Medicare ResDAC description of MDS 3.0 Data: <a href="https://www.resdac.org/cms-data/files/mds-3.0">ResDAC MDS</a></p>
+<p>A copy of the minimum dataset 3.0: <a href="https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/NursingHomeQualityInits/Downloads/Archive-Draft-of-the-MDS-30-Nursing-Home-Comprehensive-NC-Version-1140.pdf">Copy of MDS item set</a></p>
+<p>minimum dataset 3.0 manual: <a href="https://downloads.cms.gov/files/1-MDS-30-RAI-Manual-v115R-October-1-2017-R.pdf">Manual</a></p>
 </div>
-<div id="contacting-authors" class="section level2">
+<div id="important-notes" class="section level2">
 <h2 class="hasAnchor">
-<a href="#contacting-authors" class="anchor"></a>Contacting authors</h2>
-<p>The primary author of the package was Kevin W. McConeghy.</p>
+<a href="#important-notes" class="anchor"></a>Important notes:</h2>
+<ul>
+<li><p>The MDS is filled out with input from the provider (nurse), patient and family members, some segments can be filled out by either patient or advocate.</p></li>
+<li><p>The MDS is essentially an item-response survey and is prone to errors in dates, height / weight etc. Several functions in this package are devoted to checking for errors.</p></li>
+</ul>
 </div>
   </div>
 
@@ -114,8 +113,8 @@
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#introduction">Introduction</a></li>
-      <li><a href="#contacting-authors">Contacting authors</a></li>
+<li><a href="#important-resources">Important Resources:</a></li>
+      <li><a href="#important-notes">Important notes:</a></li>
       </ul>
 </div>
       </div>

@@ -3,4 +3,6 @@ pkgdown: 1.1.0
 pkgdown_sha: ~
 articles:
   01-Introduction: 01-Introduction.html
+  02-mds: 02-mds.html
+  03-chkmds: 03-chkmds.html
 

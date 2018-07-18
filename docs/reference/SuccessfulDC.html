@@ -87,6 +87,12 @@ were discharged to community" />
     <li>
       <a href="../articles/01-Introduction.html">mdsR: A package suite for nursing home assessments</a>
     </li>
+    <li>
+      <a href="../articles/02-mds.html">mdsR: Nursing Home Assessment Background</a>
+    </li>
+    <li>
+      <a href="../articles/03-chkmds.html">mdsR: Checks and Reports on MDS datasets</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -120,7 +126,7 @@ were discharged to community</p>
     
     </div>
 
-    <pre class="usage">SuccessfulDC <- function(x, .preindex, .postindex)</pre>
+    <pre class="usage"><span class='fu'>SuccessfulDC</span>(<span class='no'>x</span>, <span class='st'>'2018-01-01'</span>, <span class='st'>'2018-10-01'</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -150,7 +156,7 @@ to community in window</p>
     <pre class="examples"><div class='input'><span class='fu'>require</span>(<span class='no'>mdsR</span>)
 <span class='no'>mds_dta</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mdsR</span><span class='kw ns'>::</span><span class='no'>mds_cohort</span></div><div class='output co'>#&gt; <span class='error'>Error: 'mds_cohort' is not an exported object from 'namespace:mdsR'</span></div><div class='input'><span class='no'>start</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lubridate</span><span class='kw ns'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/ymd.html'>ymd</a></span>(<span class='st'>'2017-01-01'</span>)
 <span class='no'>stop</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lubridate</span><span class='kw ns'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/ymd.html'>ymd</a></span>(<span class='st'>'2018-01-01'</span>)
-<span class='no'>mds_dta2</span> <span class='kw'>&lt;-</span> <span class='fu'>SuccessfulDC</span>(<span class='no'>mds_dta</span>, <span class='no'>start</span>, <span class='no'>stop</span>)</div><div class='output co'>#&gt; <span class='error'>Error in mdsvars %in% names(x): object 'mds_dta' not found</span></div><div class='input'>
+<span class='no'>mds_dta2</span> <span class='kw'>&lt;-</span> <span class='fu'>SuccessfulDC</span>(<span class='no'>mds_dta</span>, <span class='no'>start</span>, <span class='no'>stop</span>)</div><div class='output co'>#&gt; <span class='error'>Error: mdsvars %in% names(x) are not all TRUE</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

@@ -1,11 +1,9 @@
-library('devtools')
-
 #Check Rtools
   devtools::has_devel()
 
 #Initial Set-up
-  setwd("~/GitHub/mdsR")
-  setup("C:\\Users\\User\\Documents\\GitHub\\mdsR")
+  setwd("~\\GitHub\\mdsR")
+  #setup("C:\\Users\\User\\Documents\\GitHub\\mdsR")
 
 # devtools::use_data_raw()
 # devtools::use_gpl3_license()

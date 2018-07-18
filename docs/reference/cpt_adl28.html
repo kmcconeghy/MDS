@@ -87,6 +87,12 @@ ADL score for each assessment." />
     <li>
       <a href="../articles/01-Introduction.html">mdsR: A package suite for nursing home assessments</a>
     </li>
+    <li>
+      <a href="../articles/02-mds.html">mdsR: Nursing Home Assessment Background</a>
+    </li>
+    <li>
+      <a href="../articles/03-chkmds.html">mdsR: Checks and Reports on MDS datasets</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -139,10 +145,14 @@ ADL score for each assessment.</p>
 
     <p>A dataframe with added column adl_score</p>
     
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>ADD LATER</p>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>require</span>(<span class='no'>mdsR</span>)
-<span class='no'>mds_dta</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mdsR</span><span class='kw ns'>::</span><span class='no'>mds_cohort</span></div><div class='output co'>#&gt; <span class='error'>Error: 'mds_cohort' is not an exported object from 'namespace:mdsR'</span></div><div class='input'><span class='fu'>cpt_adl28</span>(<span class='no'>mds_dta</span>)</div><div class='output co'>#&gt; <span class='error'>Error in stopifnot(any(class(x) == "data.frame")): object 'mds_dta' not found</span></div><div class='input'>
+<span class='no'>mds_dta</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mdsR</span><span class='kw ns'>::</span><span class='no'>mds_cohort</span></div><div class='output co'>#&gt; <span class='error'>Error: 'mds_cohort' is not an exported object from 'namespace:mdsR'</span></div><div class='input'><span class='fu'>cpt_adl28</span>(<span class='no'>mds_dta</span>)</div><div class='output co'>#&gt; <span class='error'>Error: adlvars %in% names(x) are not all TRUE</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -151,6 +161,8 @@ ADL score for each assessment.</p>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#references">References</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>
