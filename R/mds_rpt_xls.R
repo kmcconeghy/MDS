@@ -20,12 +20,14 @@
 #' mds_rpt_xls(mds_dta, 'mds.xslx')
 #'
 mds_rpt_xls <- function(mds_obj,
-                        filepath,
+                        filepath = '',
                         .quietly = F) {
 
+  obj_name <- rlang::enquo(mds_obj) %>% rlang::get_expr(.)
+
   # Must be dataframe
-  stopifnot(any(class(mds_obj)=='data.frame') &
-            any(class(mds_obj)=='mds_core'))
+  if (all(class(mds_obj)!='data.frame')) stop('mds_obj not data.frame')
+  if (mds_is_canon(mds_obj)==F) stop('mds_obj not canon, see ?mds_canon')
 
   #Must have certain columns
   std_columns <- c('bene_id_18900', 'dmdate', 'DMRECID')
@@ -33,7 +35,6 @@ mds_rpt_xls <- function(mds_obj,
 
   ## Set-up file
   xl_style <- mds_rpt_sty()
-  obj_name <- rlang::quo(mds_obj)
 
   ## Set-up workbook
   xlsx.wb <- openxlsx::createWorkbook()
@@ -95,5 +96,9 @@ mds_rpt_xls <- function(mds_obj,
   openxlsx::addStyle(xlsx.wb, 1, style=xl_style$result, rows=6:11, cols=1)
 
   ## Save final workbook
-  openxlsx::saveWorkbook(xlsx.wb, file=filepath, overwrite = T)
+    if (!missing(filepath)) {
+      openxlsx::saveWorkbook(xlsx.wb, file=filepath, overwrite = T)
+      } else {
+      warning('no filepath specified, no results were outputted')
+    }
 }
