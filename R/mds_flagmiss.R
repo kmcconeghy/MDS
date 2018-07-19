@@ -2,7 +2,7 @@
 #'
 #' @description Will report % missing for each column in a table
 #'
-#' @usage mds_flagmiss(mds_object, .quietly, .cutoff=0.10, .table)
+#' @usage mds_flagmiss(mds_object, .quietly=F, .cutoff=0.10, .table=T)
 #'
 #' @param mds_object A data.frame/mds class object with MDS items.
 #'
