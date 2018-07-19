@@ -42,7 +42,10 @@ mk_beneid <- function() {
 #'
 #
 mk_accptid <- function() {
-  y <- as.character(sample(1:999999, 1))
+  y <- str_pad(sample(1:999999, 1),
+               width=6,
+               side='left',
+               pad='0')
   return(y)
 }
 
@@ -50,7 +53,9 @@ mk_accptid <- function() {
 #'
 #' @description Internal function for making fake MDS
 #'
-#' @usage mk_provid()
+#' @usage mk_provid(x)
+#'
+#' @param x Must be state code
 #'
 #' @export
 #'
