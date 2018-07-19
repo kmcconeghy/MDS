@@ -21,6 +21,7 @@ mds_as_canon <- function(mds_obj, .report=T) {
 
   ## Scoping
     obj_nm <- rlang::quo(mds_obj)
+    obj_str <- rlang::quo_text(obj_nm)
 
   ## Check if canon
     test_df <- any(class(mds_obj)=='data.frame')
@@ -33,27 +34,28 @@ mds_as_canon <- function(mds_obj, .report=T) {
   ## Standard variables
     std_nms <- mdsR::mds_varlist[mds_varlist$standard=='std', ]$item
     test_std <-names(mds_obj) %in% std_nms
-    unk_nms <- names(mds_obj)[test_std==F] #add more
 
   ## Non-standard
-    nonstd_nms <- mdsR::mds_varlist[mds_varlist$standard=='non-std', ]$item
-    test_nonstd <- names(mds_obj)[unk_nms] %in% nonstd_nms
-    unlisted_nms <- names(mds_obj) #add more
+    nonstd_nms <- mdsR::mds_varlist[mds_varlist$standard=='non_std', ]$item
+    test_nonstd <- names(mds_obj) %in% nonstd_nms
+
+  ## Unknown variables
+    unk_nms <- names(mds_obj)[test_std==F & test_nonstd==F]
 
   ## Class mds
     if (test_core==F) attr(mds_obj, 'mds_canon') <- 'heresy'
     if (test_core==T) attr(mds_obj, 'mds_canon') <- 'mds_core'
-    if (all(test_core, test_std)) attr(mds_obj, 'mds_canon') <- 'mds_std'
     test_mds <- if_else(attr(mds_obj, 'mds_canon') %in% c('mds_core', 'mds_std'), T, F)
 
   ## Return
     if (.report==T) {
-      cat(rlang::quo_text(obj_nm), ' is data.frame....', test_df, '\n')
-      cat(rlang::quo_text(obj_nm), ' is tibble....', test_tbl, '\n')
-      cat(rlang::quo_text(obj_nm), ' has core variables....', test_core, '\n')
-      cat(rlang::quo_text(obj_nm), ' all variables "std"....', all(test_std), '\n')
-      if (all(test_std)==F) { cat(' "non-std" variables....', paste0(unk_nms, sep=','), '\n') }
-      cat(rlang::quo_text(obj_nm), ' is mds canon....', test_mds, '\n')
+      cat(obj_str, ' is data.frame....', test_df, '\n')
+      cat(obj_str, ' is tibble....', test_tbl, '\n')
+      cat(obj_str, ' has core variables....', test_core, '\n')
+      cat(obj_str, ' all variables "std"....', all(test_std), '\n')
+      cat(obj_str, ' has "non-std" variables....', any(test_nonstd), '\n')
+      if (is.null(unk_nms)==F) { cat('non-canon variables...', paste0(unk_nms, sep=','), '\n') }
+      cat(obj_str, ' is mds canon....', test_mds, '\n')
     }
 
     if (test_mds==T) {
