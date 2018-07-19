@@ -27,7 +27,7 @@ mds_fmt <- function(mds_obj, .quietly=F) {
     cat('formatting variables...')
 
   ## Gender formatting
-    if (exists('mds_obj$M3A0800')==T) {
+    if ('M3A0800' %in% names(mds_obj)) {
       mds_obj$mds_gender <- mds_gender(mds_obj$M3A0800)
       mds_obj$M3A0800 <- NULL
 
