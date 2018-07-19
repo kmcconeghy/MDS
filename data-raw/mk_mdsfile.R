@@ -79,7 +79,7 @@ mds_fake_3 <- mds_fake_2 %>%
              M3A2000 =  M3A1600 + sample(1:1000, 1)) %>%
     ungroup()
 
-  mds_dta <- mds_fake_4 %>%
+  mds_fake_5 <- mds_fake_4 %>%
     group_by(bene_id_18900) %>%
     mutate(DMASMDT = if_else(row_number()==1L, M3A1600, NA_integer_),
            DMASMDT = if_else(row_number()==n(), M3A2000, DMASMDT)) %>%
@@ -92,7 +92,12 @@ mds_fake_3 <- mds_fake_2 %>%
            dmdate = as_date(DMASMDT),
            M3A1600 = as_date(M3A1600),
            M3A2000 = as_date(M3A2000)) %>%
-    arrange(bene_id_18900, DMASMDT) %>%
-    mds_canon(.)
+    arrange(bene_id_18900, DMASMDT)
+
+  mds_dta <- mds_fake_5 %>%
+    group_by(bene_id_18900) %>%
+    mutate(M3A0800 = sample(1:2, size=1))
+
+  mds_dta <- mds_as_canon(mds_dta, .report=F)
 
 devtools::use_data(mds_dta, overwrite=T)
