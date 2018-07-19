@@ -4,7 +4,10 @@
 \alias{mk_provid}
 \title{mk_provid: Make random provider facility ID}
 \usage{
-mk_provid()
+mk_provid(x)
+}
+\arguments{
+\item{x}{Must be state code}
 }
 \description{
 Internal function for making fake MDS
