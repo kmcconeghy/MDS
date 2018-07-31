@@ -81,7 +81,7 @@
       <h1>mdsR: Checks and Reports on MDS datasets</h1>
                         <h4 class="author">Kevin W. McConeghy</h4>
             
-            <h4 class="date">2018-07-18</h4>
+            <h4 class="date">2018-07-19</h4>
       
       
       <div class="hidden name"><code>03-chkmds.Rmd</code></div>
@@ -122,7 +122,8 @@
 <span class="co">#&gt; mds_obj  is tibble.... FALSE </span>
 <span class="co">#&gt; mds_obj  has core variables.... FALSE </span>
 <span class="co">#&gt; mds_obj  all variables "std".... FALSE </span>
-<span class="co">#&gt;  "non-std" variables.... speed, dist, </span>
+<span class="co">#&gt; mds_obj  has "non-std" variables.... FALSE </span>
+<span class="co">#&gt; non-canon variables... speed, dist, </span>
 <span class="co">#&gt; mds_obj  is mds canon.... FALSE</span></code></pre></div>
 </div>
 <div id="test-canon-file" class="section level4">
@@ -134,7 +135,8 @@ mds_dta &lt;-<span class="st"> </span><span class="kw"><a href="../reference/mds
 <span class="co">#&gt; mds_obj  is tibble.... TRUE </span>
 <span class="co">#&gt; mds_obj  has core variables.... TRUE </span>
 <span class="co">#&gt; mds_obj  all variables "std".... FALSE </span>
-<span class="co">#&gt;  "non-std" variables.... DMREPID, bene_id_18900, accpt_id, DMREPPROV, M3A0100A, M3A0100B, M3A0100C, mmxxid, mmxxidp, PROV1680_0, PROV1680_1, DMRECID, M3A1600, DMASMDT, dmdate, </span>
+<span class="co">#&gt; mds_obj  has "non-std" variables.... TRUE </span>
+<span class="co">#&gt; non-canon variables... DMREPPROV, M3A0100A, M3A0100B, M3A0100C, mmxxid, mmxxidp, PROV1680_0, PROV1680_1, M3A1600, DMASMDT, </span>
 <span class="co">#&gt; mds_obj  is mds canon.... TRUE</span></code></pre></div>
 </div>
 </div>
@@ -168,7 +170,8 @@ mds_dta &lt;-<span class="st"> </span><span class="kw"><a href="../reference/mds
 <span class="co">#&gt; 14       M3A1600        0</span>
 <span class="co">#&gt; 15       M3A2000        0</span>
 <span class="co">#&gt; 16       DMASMDT        0</span>
-<span class="co">#&gt; 17        dmdate        0</span></code></pre></div>
+<span class="co">#&gt; 17        dmdate        0</span>
+<span class="co">#&gt; 18       M3A0800        0</span></code></pre></div>
 </div>
 <div id="check-variables-for-formatting" class="section level2">
 <h2 class="hasAnchor">

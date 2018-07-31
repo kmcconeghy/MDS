@@ -1,4 +1,4 @@
-#' mds_dta
+#' mds_dta: A fake dataset for practice / examples
 #'
 #' A fake MDS dataset, procedurally generated on each R build.
 #'
@@ -16,6 +16,7 @@
 #'   \item{PROV1680_0}{OSCAR / CASPAR Facility ID}
 #'   \item{PROV1680_1}{OSCAR / CASPAR Facility ID}
 #'   \item{DMRECID}{Assessment ID}
+#'   \item{M3A0800}{Gender}
 #'   \item{M3A0900}{Date of Birth}
 #'   \item{M3A1600}{Date of Admission}
 #'   \item{M3A2000}{Date of Discharge}

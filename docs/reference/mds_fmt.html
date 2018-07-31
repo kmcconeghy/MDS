@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>mk_provid: Make random provider facility ID — mk_provid • mdsR</title>
+<title>mds_fmt: Format an MDS file — mds_fmt • mdsR</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,10 @@
 
 
 
-<meta property="og:title" content="mk_provid: Make random provider facility ID — mk_provid" />
+<meta property="og:title" content="mds_fmt: Format an MDS file — mds_fmt" />
 
-<meta property="og:description" content="Internal function for making fake MDS" />
+<meta property="og:description" content="Runs a series of functions to reformat and edit a file to make
+final analytical file" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -113,35 +114,70 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>mk_provid: Make random provider facility ID</h1>
+    <h1>mds_fmt: Format an MDS file</h1>
     
-    <div class="hidden name"><code>mk_provid.Rd</code></div>
+    <div class="hidden name"><code>mds_fmt.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Internal function for making fake MDS</p>
+    <p>Runs a series of functions to reformat and edit a file to make
+final analytical file</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>mk_provid</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>mds_fmt</span>(<span class='no'>mds_obj</span>, <span class='kw'>.quietly</span><span class='kw'>=</span><span class='no'>F</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>Must be state code</p></td>
+      <th>mds_obj</th>
+      <td><p>A data.frame class object with MDS items.</p></td>
+    </tr>
+    <tr>
+      <th>.quietly</th>
+      <td><p>If FALSE, will print some output to console</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>A tibble class dataframe</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>require</span>(<span class='no'>mdsR</span>)
+<span class='no'>mds_dta</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mdsR</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/mdsR/topics/mds_dta'>mds_dta</a></span>
+<span class='fu'>mds_fmt</span>(<span class='no'>mds_dta</span>)</div><div class='output co'>#&gt; formatting variables...gender, ..done</div><div class='output co'>#&gt; # A tibble: 10,431 x 18
+#&gt; # Groups:   bene_id_18900 [1,000]
+#&gt;    DMREPID  bene_id_18900  accpt_id DMREPPROV M3A0100A M3A0100B M3A0100C mmxxid
+#&gt;    &lt;chr&gt;    &lt;chr&gt;          &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; 
+#&gt;  1 ME-0000~ jjjjjjj0192kn~ 527449   ME-00000~ 6299880~ 527449   ""       527449
+#&gt;  2 ME-0000~ jjjjjjj0192kn~ 527449   ME-00000~ 6299880~ 527449   ""       527449
+#&gt;  3 ME-0000~ jjjjjjj0192kn~ 527449   ME-00000~ 6299880~ 527449   ""       527449
+#&gt;  4 ME-0000~ jjjjjjj0192kn~ 527449   ME-00000~ 6299880~ 527449   ""       527449
+#&gt;  5 ME-0000~ jjjjjjj0192kn~ 527449   ME-00000~ 6299880~ 527449   ""       527449
+#&gt;  6 ME-0000~ jjjjjjj0192kn~ 527449   ME-00000~ 6299880~ 527449   ""       527449
+#&gt;  7 ME-0000~ jjjjjjj0192kn~ 527449   ME-00000~ 6299880~ 527449   ""       527449
+#&gt;  8 ME-0000~ jjjjjjj0192kn~ 527449   ME-00000~ 6299880~ 527449   ""       527449
+#&gt;  9 ME-0000~ jjjjjjj0192kn~ 527449   ME-00000~ 6299880~ 527449   ""       527449
+#&gt; 10 ME-0000~ jjjjjjj0192kn~ 527449   ME-00000~ 6299880~ 527449   ""       527449
+#&gt; # ... with 10,421 more rows, and 10 more variables: mmxxidp &lt;chr&gt;,
+#&gt; #   PROV1680_0 &lt;chr&gt;, PROV1680_1 &lt;chr&gt;, DMRECID &lt;chr&gt;, M3A0900 &lt;date&gt;,
+#&gt; #   M3A1600 &lt;date&gt;, M3A2000 &lt;date&gt;, DMASMDT &lt;date&gt;, dmdate &lt;date&gt;,
+#&gt; #   mds_gender &lt;fct&gt;</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

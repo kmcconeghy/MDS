@@ -1,4 +1,4 @@
-#' mds_varlist
+#' mds_varlist: A standard dictionary
 #'
 #' Standard MDS data dictionary; includes list of variables and attributes. If
 #' not specified otherwise, all tests / format checks will use this file for
