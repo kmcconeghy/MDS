@@ -3,7 +3,7 @@
 \docType{data}
 \name{mds_dta}
 \alias{mds_dta}
-\title{mds_dta}
+\title{mds_dta: A fake dataset for practice / examples}
 \format{A data frame with XX rows and XX variables:
 \describe{
   \item{DMREPID}{Repository ID}
@@ -18,6 +18,7 @@
   \item{PROV1680_0}{OSCAR / CASPAR Facility ID}
   \item{PROV1680_1}{OSCAR / CASPAR Facility ID}
   \item{DMRECID}{Assessment ID}
+  \item{M3A0800}{Gender}
   \item{M3A0900}{Date of Birth}
   \item{M3A1600}{Date of Admission}
   \item{M3A2000}{Date of Discharge}

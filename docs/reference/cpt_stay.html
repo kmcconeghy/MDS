@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>mds_rpt_sty: Set excel formats — mds_rpt_sty • mdsR</title>
+<title>cpt_stay: Flag residents by stay length — cpt_stay • mdsR</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,11 @@
 
 
 
-<meta property="og:title" content="mds_rpt_sty: Set excel formats — mds_rpt_sty" />
+<meta property="og:title" content="cpt_stay: Flag residents by stay length — cpt_stay" />
 
-<meta property="og:description" content="Called by mds_rpt_xls()" />
+<meta property="og:description" content="Scans a data.frame of minimum dataset assessments, assigns an
+indicator according to an arbitrary length of stay. 100 days with no more
+than 10 days out is a standard &quot;long-stay&quot; definition." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -115,25 +117,80 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>mds_rpt_sty: Set excel formats</h1>
+    <h1>cpt_stay: Flag residents by stay length</h1>
     
-    <div class="hidden name"><code>mds_rpt_sty.Rd</code></div>
+    <div class="hidden name"><code>cpt_stay.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Called by mds_rpt_xls()</p>
+    <p>Scans a data.frame of minimum dataset assessments, assigns an
+indicator according to an arbitrary length of stay. 100 days with no more
+than 10 days out is a standard "long-stay" definition.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>mds_rpt_sty</span>()</pre>
-        
+    <pre class="usage"><span class='fu'>cpt_stay</span>(<span class='no'>mds_obj</span>,
+                <span class='kw'>.stay_min</span> <span class='kw'>=</span> <span class='fl'>100L</span>,
+                <span class='no'>.stay_maxout</span>,
+                <span class='kw'>.report</span><span class='kw'>=</span><span class='no'>T</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>.stay_min</th>
+      <td><p>A integer of length one. The length of stay to flag.
+100 days is the default.</p></td>
+    </tr>
+    <tr>
+      <th>.stay_maxout</th>
+      <td><p>A integer of length one. The maximum allowable days
+outside of nursing home. 10 days is default.</p></td>
+    </tr>
+    <tr>
+      <th>.report</th>
+      <td><p>A logical indicating a short report on cohort construction.
+Default is true.</p></td>
+    </tr>
+    <tr>
+      <th>mds_obj</th>
+      <td><p>A data.frame class object which is "mds canon".
+See ?mds_as_canon</p></td>
+    </tr>
+    <tr>
+      <th>.keep_all</th>
+      <td><p>A logical indicates whether to keep all the patients, or
+if false only those meeting .stay_* rules. Default is false.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>A dataframe with one row per resident, cohort entry, cohort exit,
+flag for rules equals T if .stay_* rules met,</p>
+    
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>ADD LATER</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='no'>mdsR</span>)
+<span class='no'>mds_dta</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mdsR</span><span class='kw ns'>::</span><span class='no'>mds_cohort</span></div><div class='output co'>#&gt; <span class='error'>Error: 'mds_cohort' is not an exported object from 'namespace:mdsR'</span></div><div class='input'><span class='no'>longstay</span> <span class='kw'>&lt;-</span> <span class='fu'>cpt_stay</span>(<span class='no'>mds_dta</span>, <span class='kw'>.keep_all</span><span class='kw'>=</span><span class='no'>T</span>)</div><div class='output co'>#&gt; <span class='error'>Error in cpt_stay(mds_dta, .keep_all = T): unused argument (.keep_all = T)</span></div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#references">References</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

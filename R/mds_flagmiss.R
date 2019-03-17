@@ -2,7 +2,7 @@
 #'
 #' @description Will report % missing for each column in a table
 #'
-#' @usage mds_flagmiss(mds_object, .quietly=F, .cutoff=0.10, .table=T)
+#' @usage mds_flagmiss(mds_object, .quietly=F, .cutoff=0.10, .table=F)
 #'
 #' @param mds_object A data.frame/mds class object with MDS items.
 #'
@@ -23,7 +23,7 @@
 #' mds_dta <- mdsR::mds_dta
 #' mds_flagmiss(mds_dta)
 #'
-mds_flagmiss <- function(mds_object, .quietly=F, .cutoff=0.10, .table=T) {
+mds_flagmiss <- function(mds_object, .quietly=F, .cutoff=0.10, .table=F) {
 
   ## sanity check
   stopifnot((attr(mds_object, 'mds_canon') %in% c('mds_core', 'mds_std'))==T)
@@ -33,21 +33,26 @@ mds_flagmiss <- function(mds_object, .quietly=F, .cutoff=0.10, .table=T) {
   count_na <- sapply(mds_object, function(x) sum(is.na(x)))
   count <- nrow(mds_object)
 
-  count_na <- sapply(count_na, function(x) x/count)
+  prop_na <- sapply(count_na, function(x) x/count)
 
-  if (.quietly==F) {
-    cat('MDS variables with >10% missingness... \n')
-    if (max(count_na)<.cutoff) cat('...none')
+  if (!.quietly) {
+    cat('MDS variables with >10% missingness...')
+    if (max(prop_na)<.cutoff) {
+      cat('...none \n')
+    } else {
     for (i in varlist) {
-      if (count_na[i]>.cutoff) {
-        cat('Var: ', names(count_na[i]), ' ', scales::percent(count_na[i]), '\n')
+      if (prop_na[i]>.cutoff) {
+        cat('\n') #newline
+        cat('Var: ', names(prop_na[i]), ' ', scales::percent(prop_na[i]), '\n')
+        }
       }
-    }
-  }
+    } # end else
+  } # end  if(quietly)
 
   ## return table
-  if (.table==T) {
-    out <- data.frame(varlist, count_na)
+  if (.table) {
+    out <- data.frame(varlist, count_na, prop_na) %>%
+      dplyr::filter(prop_na >= .cutoff)
     rownames(out) <- NULL
     return(out)
   }

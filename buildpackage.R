@@ -1,5 +1,5 @@
 #Check Rtools
-  devtools::has_devel()
+  pkgbuild::find_rtools()
 
 #Initial Set-up
   setwd("~\\GitHub\\mdsR")

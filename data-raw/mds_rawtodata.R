@@ -10,6 +10,6 @@ setwd("~/GitHub/mdsR/data-raw")
     mds_varlist <- readxl::read_xlsx('mdsR_dict.xlsx')
 
   #Standard
-    devtools::use_data(mds_varlist, overwrite=T)
+    usethis::use_data(mds_varlist, overwrite=T)
 
 

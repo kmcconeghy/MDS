@@ -21,7 +21,7 @@ mds_chkmds <- function(mds_obj) {
 
   ## Print summary statistics
     cat('General Report on Minimum Dataset File \n')
-    cat('R global environment. object: ', paste0(rlang::quo_text(obj_name), '\n'))
+    cat('R global environment, object: ', paste0(rlang::quo_text(obj_name), '\n'))
     cat('Date Created: ', Scotty::TimeStamp(), 'Programmer: ', 'KWM',  '\n')
 
 

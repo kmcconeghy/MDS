@@ -25,6 +25,7 @@ chk_std <- function(x) {
 #'
 chk_DMREPID <- function(x) {
   testthat::expect_is(x, character)
+  testtthat::expect_equals(, 15L) # character lengeth
 }
 
 #' @title chk_DMRECID: Test Record ID

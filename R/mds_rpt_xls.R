@@ -49,7 +49,7 @@ mds_rpt_xls <- function(mds_obj,
   if (.quietly==F) {
     cat('General Report on Minimum Dataset File \n')
     cat('R gloal environ. object: ', rlang::quo_text(obj_name), '\n')
-    cat('Date Created: ', Scotty::TimeStamp(), 'Programmer: ', 'KWM',  '\n')
+    cat('Date Created: ', Scotty::timestamp(), 'Programmer: ', 'KWM',  '\n')
   }
 
   ##Title
@@ -64,7 +64,7 @@ mds_rpt_xls <- function(mds_obj,
                       startRow=2, startCol=1)
 
   openxlsx::writeData(xlsx.wb, 1, paste0('Date Created: ',
-                                         Scotty::TimeStamp(),
+                                         Scotty::timestamp(),
                                          ', Programmer: ',
                                          'KWM'),
                       startRow=3, startCol=1)

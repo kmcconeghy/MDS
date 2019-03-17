@@ -1,11 +1,33 @@
-cpt_cps <- function(x, report=T) {
-  
+#' @title Compute Cognitive-Performance Scale Score
+#'
+#' @description Scans MDS dataframe for 'std' named BIMS / CPS items and
+#' computes cps for each assessment.
+#'
+#' @usage cpt_cps(x, .report=T)
+#'
+#' @param x A data.frame class object, with M3G0110 items.
+#'
+#' @param report Generates a short report on computed ADL score
+#'
+#' @return A dataframe with added column adl_score
+#'
+#' @export
+#'
+#' @examples
+#' require(mdsR)
+#' mds_dta <- mdsR::mds_cohort
+#' cpt_adl28(mds_dta)
+#'
+#' @references ADD LATER
+#'
+cpt_cps <- function(x, .report=T) {
+
   stopifnot(any(class(x)=="data.frame"))
-  
+
   cpsvars <- c("M3C0500", "M3B0100", "M3B0700", "M3C0700", "M3C1000")
-  
+
   stopifnot(cpsvars %in% names(x))
-  
+
   #M3B0100 - Comatose, c(0,1)
   #M3B0700 - Ability to express oneself, values c(0,1,2,3)
   #M3C0500 - BIMS summary score, 0-15, 99-missing
@@ -17,7 +39,7 @@ cpt_cps <- function(x, report=T) {
   #Rule 3 = If patient has 1 or 2 deficiencies
 
 ## Kali's code for defining cognitively impaired (R-adapted)
-df_return <- x %>%  
+df_return <- x %>%
   mutate(bims = suppressWarnings(as.integer(M3C0500)),
          bims = if_else(M3C0500==99L, NA_integer_, bims),
          M3B0100 = suppressWarnings(as.integer(M3B0100)),
@@ -25,27 +47,27 @@ df_return <- x %>%
          M3C0700 = suppressWarnings(as.integer(M3C0700)),
          M3C1000 = suppressWarnings(as.integer(M3C1000)),
          probct1 = 0L,
-         probct1 = if_else(!(M3C1000 %in% c(0L, 1L, 2L, 3L) & 
-                               M3B0700 %in% c(0L, 1L, 2L, 3L) & 
+         probct1 = if_else(!(M3C1000 %in% c(0L, 1L, 2L, 3L) &
+                               M3B0700 %in% c(0L, 1L, 2L, 3L) &
                                M3C0700 %in% c(0L, 1L)), NA_integer_, probct1),
          probct2 = 0L,
-         probct2 = if_else(!(M3C1000 %in% c(0L, 1L, 2L, 3L) & 
-                               M3B0700 %in% c(0L, 1L, 2L, 3L) & 
+         probct2 = if_else(!(M3C1000 %in% c(0L, 1L, 2L, 3L) &
+                               M3B0700 %in% c(0L, 1L, 2L, 3L) &
                                M3C0700 %in% c(0L, 1L)), NA_integer_, probct2),
-         probct1 = if_else(!is.na(probct1) & M3C1000 %in% c(1L, 2L), 
+         probct1 = if_else(!is.na(probct1) & M3C1000 %in% c(1L, 2L),
                            probct1+1L, probct1),
-         probct1 = if_else(!is.na(probct1) & M3B0700 %in% c(1L, 2L, 3L), 
+         probct1 = if_else(!is.na(probct1) & M3B0700 %in% c(1L, 2L, 3L),
                            probct1+1L, probct1),
-         probct1 = if_else(!is.na(probct1) & M3C0700==1L, 
+         probct1 = if_else(!is.na(probct1) & M3C0700==1L,
                            probct1+1L, probct1),
-         probct2 = if_else(!is.na(probct2) & M3C1000==2L, 
+         probct2 = if_else(!is.na(probct2) & M3C1000==2L,
                            probct2+1L, probct2),
-         probct2 = if_else(!is.na(probct2) & M3B0700 %in% c(2L,3L), 
+         probct2 = if_else(!is.na(probct2) & M3B0700 %in% c(2L,3L),
                            probct2+1L, probct2),
          rule1 = if_else(M3B0100 %in% c(1L) & !(M3C1000 %in% c(0L, 1L, 2L)), T, F),
          rule2 = if_else(M3C1000 %in% c(3L), T, F),
          rule3 = if_else(probct1 %in% c(2L, 3L), T, F),
-         cps = NA_integer_, 
+         cps = NA_integer_,
          cps = if_else(rule1==T, 6L, cps),
          cps = if_else(is.na(cps) & rule1==F & rule2==T & adl_eating==4, 6L, cps),
          cps = if_else(is.na(cps) & rule1==F & rule2==T & adl_eating<4, 5L, cps),

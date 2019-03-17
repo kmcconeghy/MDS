@@ -3,7 +3,7 @@
 \docType{data}
 \name{mds_varlist}
 \alias{mds_varlist}
-\title{mds_varlist}
+\title{mds_varlist: A standard dictionary}
 \format{A data frame with XX rows and 7 variables:
 \describe{
   \item{item}{Variable Name}

@@ -4,7 +4,7 @@
 \alias{mds_flagmiss}
 \title{mds_flagmiss: Generate report of missingness}
 \usage{
-mds_flagmiss(mds_object, .quietly=F, .cutoff=0.10, .table=T)
+mds_flagmiss(mds_object, .quietly=F, .cutoff=0.10, .table=F)
 }
 \arguments{
 \item{mds_object}{A data.frame/mds class object with MDS items.}

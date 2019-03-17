@@ -54,7 +54,12 @@ mds_is_canon(mds_dta)
 
 ## Check missingness  
 ```{r }
-mds_flagmiss(mds_dta)
+mds_flagmiss(mds_dta, .table=F)
+```
+
+### Report table of missingness  
+```{r }
+mds_flagmiss(mds_dta, .cutoff=0, .table=T)
 ```
 
 ## Check variables for formatting  
